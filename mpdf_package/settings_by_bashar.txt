@@ -1,0 +1,40 @@
+1. paste ttf fonts inside:
+C:\xampp\htdocs\bkkb\application\helper\mpdf_package\vendor\mpdf\mpdf\ttfonts
+
+2. C:\xampp\htdocs\bkkb\application\helper\mpdf_package\vendor\mpdf\mpdf\src\Config\FontVariables.php
+add these line in that file: 
+"nikosh" => [
+		'R' => "Nikosh.ttf",
+		'useOTL' => 0xFF,
+],
+
+and after that:
+
+/* Indic */
+"lohitkannada" => [
+	'R' => "Lohit-Kannada.ttf",
+	'useOTL' => 0xFF,
+],
+"pothana2000" => [
+	'R' => "Pothana2000.ttf",
+	'useOTL' => 0xFF,
+],
+"nikosh" => [
+		'R' => "Nikosh.ttf",
+		'useOTL' => 0xFF,
+],
+
+3. Config at your report generate page: 
+$mpdf = new \Mpdf\Mpdf(['default_font' => 'Nikosh','mode' => 'utf-8','format' => 'A4-L' ]);
+
+4. Add a style  at your report generated page:
+
+<style>
+    #pdf-report {
+        font-family: Nikosh;
+        color: transparent;
+        white-space: pre;
+        cursor: text;
+        transform-origin: 0% 0%;
+    }
+</style>
